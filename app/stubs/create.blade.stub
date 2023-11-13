@@ -1,0 +1,21 @@
+<div>
+    <h1>{{ __('Create New Item') }}</h1>
+
+    <form wire:submit.prevent="store">
+        <div>
+            <label for="name">{{ __('Name') }}</label>
+            <input type="text" id="name" wire:model.lazy="name" placeholder="{{ __('Enter name') }}" required>
+            @error('name') <span class="text-red-500">{{ $message }}</span> @enderror
+        </div>
+
+        <div>
+            <label for="email">{{ __('Email') }}</label>
+            <input type="email" id="email" wire:model.lazy="email" placeholder="{{ __('Enter email') }}" required>
+            @error('email') <span class="text-red-500">{{ $message }}</span> @enderror
+        </div>
+
+        <button type="submit">{{ __('Save') }}</button>
+    </form>
+
+    <a href="{{ route('items.index') }}">{{ __('Back to List') }}</a>
+</div>

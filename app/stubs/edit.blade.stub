@@ -1,0 +1,23 @@
+<div>
+    <h1 class="text-xl font-bold">{{ __('Edit Item') }}</h1>
+
+    <form wire:submit.prevent="updateItem">
+        <div class="mt-4">
+            <label for="name" class="block">{{ __('Name') }}</label>
+            <input type="text" id="name" wire:model.lazy="item.name" class="mt-1 form-input">
+            @error('item.name')<p class="mt-2 text-sm text-red-500">{{ $message }}</p>@enderror
+        </div>
+
+        <div class="mt-4">
+            <label for="email" class="block">{{ __('Email') }}</label>
+            <input type="email" id="email" wire:model.lazy="item.email" class="mt-1 form-input">
+            @error('item.email')<p class="mt-2 text-sm text-red-500">{{ $message }}</p>@enderror
+        </div>
+
+        <div class="mt-6">
+            <button type="submit" class="px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-700">{{ __('Update') }}</button>
+            <a href="{{ route('items.index') }}" class="px-4 py-2 text-blue-500 hover:text-blue-700">{{ __('Cancel') }}</a>
+        </div>
+    </form>
+</div>
+    
